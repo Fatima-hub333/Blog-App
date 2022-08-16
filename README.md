@@ -1,24 +1,73 @@
-# README
+# BLOG APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![](https://img.shields.io/badge/BlogApp-blueviolet)
 
-Things you may want to cover:
+> The Blog app is a classic example of a blog website.
 
-* Ruby version
 
-* System dependencies
+## Built With
 
-* Configuration
+- Rails
+- Ruby 
+- Postgresql
 
-* Database creation
+## Getting Started
 
-* Database initialization
+Here are the steps to follow in order to get this project on your local computer.
 
-* How to run the test suite
+### Prerequisites
 
-* Services (job queues, cache servers, search engines, etc.)
+`rails v7.0.2 +`
 
-* Deployment instructions
+`ruby v3.0.2 +`
 
-* ...
+### Setup
+
+clone this repo by typing `git clone  https://github.com/Fatima-hub333/Blog-App.git
+`
+
+### Install
+
+install the dependencies by typing `bundle install`
+
+### Usage
+
+start the local server by running `rails s`
+
+### Testing
+
+run the tests by typing `bundle exec rspec`
+
+### Rubocoop
+run the tests by typing `rubocop --color`
+
+### Deployment
+
+N/A
+
+## Authors
+
+👤 **Fatima Zahir**
+
+- GitHub: [@githubhandle](https://github.com/Fatima-hub333)
+- Twitter: [@twitterhandle](https://twitter.com/Fatima_developr)
+- LinkedIn: [@LinkedIn](https://www.linkedin.com/in/fatimaa-zahir/)
+
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used !
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
