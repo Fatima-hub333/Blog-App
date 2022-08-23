@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
-  let(:author) { User.create(name: 'Fatima', photo: 'fatima.png', bio: 'Web Developer.', posts_counter: 0) }
-  subject(:post) { Post.create(author:, title: 'Fatima', text: 'My first post', likes_count: 0, comments_count: 0) }
+  let(:author) { User.create(name: 'Adanna', photo: 'ada.png', bio: 'Public Administator.', posts_counter: 0) }
+  subject(:post) { Post.create(author:, title: 'Ada', text: 'My first post', likes_count: 0, comments_count: 0) }
 
   after(:example) do
     Post.destroy_all
