@@ -14,51 +14,55 @@
  *= require_self
  */
 
- html {
+html {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 10%;
- }
+}
 
- h3,
- h4 {
+h3,
+h4 {
   margin: 0;
- }
+}
 
- .box {
-  border: 2px solid black;
- }
-
- .box,
- .box-no-border {
+.box,
+.box-no-border {
   margin: 8px;
   padding: 8px;
- }
+}
 
- .column {
+.box {
+  border: 2px solid black;
+}
+
+.column {
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-width: 400px;
   width: 100%;
- }
+}
 
- .row,
- .row-center,
- .row-justify,
- .row-right {
+.row,
+.row-center,
+.row-justify,
+.row-right {
   display: flex;
   flex-direction: row;
   align-items: center;
   min-width: 400px;
   width: 100%;
- }
+}
 
- .row-center {
+.row-center {
+  justify-content: center;
+}
+
+.row-justify {
   justify-content: space-between;
- }
+}
 
- .row-right {
+.row-right {
   justify-content: flex-end;
- }
+}

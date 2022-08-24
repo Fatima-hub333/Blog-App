@@ -1,9 +1,8 @@
-<div class="row box-no-border">
-  <div class="photo box" >
-    <%= image_tag(user.photo, {size: "55"}) %>
-  </div>
-  <div class="row-justify box">
-    <h3><%= link_to(user_path(user.id)) { user.name } %></h3>
-    <h4><%= render partial: 'users/count', object: user.posts_counter %></h4>
-  </div>
+<input type="hidden" value="Here is a list of Users" />
+<div id="authors_part" class="author-div">
+<% if @users.length > 0 %>
+  <%= render @users %>
+<% else %>
+  <%= render html: '<p /><h1>No user available</h1>'.html_safe %>
+<% end %>
 </div>
