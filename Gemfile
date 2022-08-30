@@ -9,7 +9,7 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 
 gem 'devise', '>= 4.0', '< 5.0'
-gem "letter_opener", group: :development
+gem 'letter_opener', group: :development
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
