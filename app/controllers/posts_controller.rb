@@ -1,33 +1,43 @@
 class PostsController < ApplicationController
-  include ApplicationHelper
-
-  def create
-    @post = Post.new(params.require(:post).permit(:author_id, :title, :text))
-
-    if @post.save
-      flash[:notice] = 'Post has been saved successfully'
-      redirect_to user_path(@post.author_id)
-    else
-      flash[:error] = 'Post could not be saved'
-      redirect_to new_user_post_path(@post.author_id)
-    end
-  end
+  load_and_authorize_resource
 
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.order(id: :desc)
-  rescue ActiveRecord::RecordNotFound
-    redirect_to users_path
-  end
-
-  def new
-    p current_user
-    @post = Post.new(author_id: current_user.id)
+    @posts = @user.all_posts
   end
 
   def show
     @post = Post.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to action: 'index'
+    @comments = @post.all_comments.order(created_at: :desc)
+  end
+
+  def new
+    @post = Post.new
+    @user = current_user
+  end
+
+  def create
+    @user = current_user
+    @post = @user.posts.new(post_params)
+
+    if @post.save
+      flash[:success] = 'Post created!'
+      redirect_to user_post_path(@user.id, @post.id)
+    else
+      flash.now[:error] = 'Post not created! Try again.'
+      render :new
+    end
+  end
+
+  def destroy
+    author_id = @post.author_id
+    @post.destroy
+    redirect_to user_posts_path(author_id)
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
