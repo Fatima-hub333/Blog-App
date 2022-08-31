@@ -9,7 +9,14 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 
 gem 'devise', '>= 4.0', '< 5.0'
+
 gem 'letter_opener', group: :development
+
+gem 'cancancan', '~> 3.4'
+
+gem 'bootstrap-sass', '~> 3.4'
+
+gem 'font-awesome-sass', '~> 6.1'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
