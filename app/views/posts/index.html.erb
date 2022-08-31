@@ -1,8 +1,5 @@
-<input type="hidden" value="<%= "here is a list of posts by user with id: #{@user.id}" %>"
-# <div id="authors_part" class="author-div">
-  <%= render @user %>
-  <div id="post-list">
-  <%= render @posts %>
-  </div>
-  <div class="row-center"><h3>Pagination</h3></div>
-# </div> 
+<%= render @user %>
+<div class= "posts-container">
+  <%= render @posts  %>
+  <button>Pagination</button>
+</div>
