@@ -1,46 +1,40 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :system do
-  it 'shows the username' do
-    visit('http://localhost:3000/users/3')
+RSpec.describe 'User show', type: :feature do
+  before(:example) do
+    Rails.application.load_seed
+    visit user_path(User.second.id)
+  end
+
+  it "should show the user's profile picture" do
+    expect(page).to have_css("img[src*='Lilly']")
+  end
+
+  it "should show the user's username" do
     expect(page).to have_content('Lilly')
   end
 
-  it 'displays profile picture' do
-    visit('http://localhost:3000/users/3')
-    image = page.all('img')
-    expect(image.size).to eq(1)
+  it 'should show the number of posts the user has written' do
+    expect(page).to have_content('Number of posts: 5')
   end
 
-  it 'shows numbers of posts the user has written' do
-    visit('http://localhost:3000/users/2')
-    expect(page).to have_content('Number of posts: 4')
+  it "should show the user's bio" do
+    expect(page).to have_content('Bio')
   end
 
-  it 'shows the user\'s bio' do
-    visit('http://localhost:3000/users/1')
-    expect(page).to have_content('Teacher from Mexico.')
+  it "should show the user's recent 3 posts" do
+    expect(page.all('div.post').length).to eq(3)
   end
 
-  it 'shows the user\'s first 3 posts' do
-    visit('http://localhost:3000/users/2')
-    expect(page).to have_content('Hello 4')
-    expect(page).to have_content('Hello 3')
-    expect(page).to have_content('Hello 2')
+  it "should show a button that lets me view all of a user's posts" do
+    expect(page).to have_content('See All')
   end
-
-  it 'has a "See all posts" button' do
-    visit('http://localhost:3000/users/2')
-    expect(page).to have_selector(:link_or_button, 'See all posts')
+  it "should redirects to the post's index page when I click on a user's post" do
+    click_on 'Lilly'
+    expect(page).to have_current_path user_path(User.second.id)
   end
-
-  it 'redirects to the user/post/show page when clicking on a post' do
-    visit('http://localhost:3000/users/2')
-    expect(page).to have_link('Hello 3', href: '/users/2/posts/3')
-  end
-
-  it 'redirects to users/posts index when clicking in "See all posts"' do
-    visit('http://localhost:3000/users/1')
-    expect(page).to have_link('', href: '/users/1/posts')
+  it "should redirects to the post's show page when I click on the button 'See all posts'" do
+    click_on 'See All'
+    expect(page).to have_current_path user_posts_path(User.second.id)
   end
 end

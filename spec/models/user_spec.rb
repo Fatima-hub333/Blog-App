@@ -1,32 +1,49 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  describe 'User validations' do
-    subject(:author) { User.create(name: 'Ada', photo: 'ada.png', bio: 'Student.') }
+RSpec.describe User do
+  let(:user) { User.create(name: 'John Doe', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Canada.') }
 
-    after(:all) { User.destroy_all }
+  before { user.save }
 
-    it 'Check name should be present' do
-      author.name = nil
-      expect(author).to_not be_valid
+  context 'When testing the User class' do
+    it 'should contain a name' do
+      expect(user.name).to eq('John Doe')
     end
 
-    it 'User should have post greater than or equal to 0' do
-      author.posts_counter = 1
-      expect(author).to be_valid
+    it 'should contain a photo' do
+      expect(user.photo).to eq('https://unsplash.com/photos/F_-0BxGuVvo')
     end
 
-    it 'posts_counter should be integer' do
-      author.posts_counter = 'text'
-      expect(author).to_not be_valid
+    it 'should contain a bio' do
+      expect(user.bio).to eq('Teacher from Canada.')
+    end
+  end
+
+  context 'When testing the User methods' do
+    posts = []
+
+    before do
+      posts << (1..10).each { Post.create(author: user, title: 'title', text: 'text') }
     end
 
-    describe 'Should test recent post method' do
-      before { 4.times { |_post| Post.create(author:, title: 'my first post') } }
+    it 'should return an array of posts with a maximum of 3' do
+      expect(user.recent_posts.count).to eq(3)
+    end
 
-      it 'User should have three recent posts' do
-        expect(author.most_recent_posts.length).to eq 3
-      end
+    it 'should return the lenght of posts in posts_counter' do
+      expect(user.posts_counter).to eq(10)
+    end
+  end
+
+  context 'When testing Validations' do
+    it 'should validate that name isn\'t empty' do
+      user.name = nil
+      expect(user).not_to be_valid
+    end
+
+    it 'should validate that PostsCounter must be an integer greater than or equal to zero.' do
+      user.posts_counter = -3
+      expect(user).not_to be_valid
     end
   end
 end

@@ -1,43 +1,48 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+admin = User.create(name: 'admin', photo: 'https://robohash.org/Admin', bio: 'Admin', posts_counter: 0, created_at: nil, updated_at: nil, email: 'admin@email.com', role: 'admin')
+admin.password = '123456'
+admin.password_confirmation = '123456'
+admin.confirm
+first_user = User.create(name: 'Tom', photo: 'https://robohash.org/Tom?set=set4', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales..', posts_counter: 0, created_at: nil, updated_at: nil, email:"Tom@email.com", role:"user")
+first_user.password = '123456'
+first_user.password_confirmation = '123456'
+first_user.confirm
+second_user = User.create(name: 'Lilly', photo: 'https://robohash.org/Lilly?set=set4', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales..', posts_counter: 0, created_at: nil, updated_at: nil, email:"Lilly@email.com", role:"user")
+second_user.password = '123456'
+second_user.password_confirmation = '123456'
+second_user.confirm
+third_user = User.create(name: 'Jerry', photo: 'https://robohash.org/Jerry?set=set4', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales..', posts_counter: 0, created_at: nil, updated_at: nil, email:"Jerry@email.com", role:"user")
+third_user.password = '123456'
+third_user.password_confirmation = '123456'
+third_user.confirm
+fourth_user = User.create(name: 'John', photo: 'https://robohash.org/John?set=set4', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales..', posts_counter: 0, created_at: nil, updated_at: nil, email:"John@email.com", role:"user")
+fourth_user.password = '123456'
+fourth_user.password_confirmation = '123456'
+fourth_user.confirm
+fifth_user = User.create(name: 'Jane', photo: 'https://robohash.org/Jane?set=set4', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales..', posts_counter: 0, created_at: nil, updated_at: nil, email:"Jane@email.com", role:"user")
+fifth_user.password = '123456'
+fifth_user.password_confirmation = '123456'
+fifth_user.confirm
 
-User.create(name: 'ada', photo: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
-            bio: 'Teacher from Mexico.')
-user1 = User.create(name: 'Tom', photo: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
-                    bio: 'Teacher from Mexico.')
-user2 = User.create(name: 'Lilly', photo: 'https://cdn-icons-png.flaticon.com/512/219/219969.png',
-                    bio: 'Teacher from Poland.')
+first_post = Post.create(author: first_user, title: 'Title 1', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. In dictum non consectetur a erat nam. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ut porttitor leo a diam sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. At urna condimentum mattis pellentesque. Nibh venenatis cras sed felis eget velit. Cursus risus at ultrices mi tempus imperdiet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Risus feugiat in ante metus dictum at tempor commodo. Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Quis hendrerit dolor magna eget est lorem ipsum.', comments_counter: 0, likes_counter: 0)
+second_post = Post.create(author: first_user, title: 'Title 2', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. In dictum non consectetur a erat nam. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ut porttitor leo a diam sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. At urna condimentum mattis pellentesque. Nibh venenatis cras sed felis eget velit. Cursus risus at ultrices mi tempus imperdiet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Risus feugiat in ante metus dictum at tempor commodo. Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Quis hendrerit dolor magna eget est lorem ipsum.', comments_counter: 0, likes_counter: 0)
+third_post = Post.create(author: first_user, title: 'Title 3', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. In dictum non consectetur a erat nam. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ut porttitor leo a diam sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. At urna condimentum mattis pellentesque. Nibh venenatis cras sed felis eget velit. Cursus risus at ultrices mi tempus imperdiet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Risus feugiat in ante metus dictum at tempor commodo. Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Quis hendrerit dolor magna eget est lorem ipsum.', comments_counter: 0, likes_counter: 0)
+fourth_post = Post.create(author: first_user, title: 'Title 4', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. In dictum non consectetur a erat nam. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ut porttitor leo a diam sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. At urna condimentum mattis pellentesque. Nibh venenatis cras sed felis eget velit. Cursus risus at ultrices mi tempus imperdiet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Risus feugiat in ante metus dictum at tempor commodo. Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Quis hendrerit dolor magna eget est lorem ipsum.', comments_counter: 0, likes_counter: 0)
+five_post = Post.create(author: first_user, title: 'Title 5', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. In dictum non consectetur a erat nam. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ut porttitor leo a diam sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. At urna condimentum mattis pellentesque. Nibh venenatis cras sed felis eget velit. Cursus risus at ultrices mi tempus imperdiet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Risus feugiat in ante metus dictum at tempor commodo. Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Quis hendrerit dolor magna eget est lorem ipsum.', comments_counter: 0, likes_counter: 0)
 
-Post.create(author: user1, title: 'Hello 1', text: 'This is my first post')
-Post.create(author: user1, title: 'Hello 2', text: 'This is my second post')
-post = Post.create(author: user1, title: 'Hello 3', text: "Contrary to popular belief, Lorem Ipsum \
-is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making \
-it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, \
-looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going \
-through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum \
-comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good \
-and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular \
-during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a \
-line in section 1.10.32.
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. \
-Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in \
-their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.")
-Post.create(author: user1, title: 'Hello 4', text: 'This is my fourth post')
-Comment.create(post:, author: user2, text: 'Hi Tom 1!')
-Comment.create(post:, author: user2, text: 'Hi Tom 2!')
-Comment.create(post:, author: user2, text: 'Hi Tom 3!')
-Comment.create(post:, author: user2, text: 'Hi Tom 4!')
-Comment.create(post:, author: user2, text: 'Hi Tom 5!')
-Comment.create(post:, author: user2, text: 'Hi Tom 6!')
+first2_post = Post.create(author: second_user, title: 'Title 1', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. In dictum non consectetur a erat nam. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ut porttitor leo a diam sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. At urna condimentum mattis pellentesque. Nibh venenatis cras sed felis eget velit. Cursus risus at ultrices mi tempus imperdiet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Risus feugiat in ante metus dictum at tempor commodo. Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Quis hendrerit dolor magna eget est lorem ipsum.', comments_counter: 0, likes_counter: 0)
+second2_post = Post.create(author: second_user, title: 'Title 2', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. In dictum non consectetur a erat nam. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ut porttitor leo a diam sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. At urna condimentum mattis pellentesque. Nibh venenatis cras sed felis eget velit. Cursus risus at ultrices mi tempus imperdiet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Risus feugiat in ante metus dictum at tempor commodo. Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Quis hendrerit dolor magna eget est lorem ipsum.', comments_counter: 0, likes_counter: 0)
+third2_post = Post.create(author: second_user, title: 'Title 3', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. In dictum non consectetur a erat nam. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ut porttitor leo a diam sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. At urna condimentum mattis pellentesque. Nibh venenatis cras sed felis eget velit. Cursus risus at ultrices mi tempus imperdiet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Risus feugiat in ante metus dictum at tempor commodo. Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Quis hendrerit dolor magna eget est lorem ipsum.', comments_counter: 0, likes_counter: 0)
+fourth2_post = Post.create(author: second_user, title: 'Title 4', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. In dictum non consectetur a erat nam. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ut porttitor leo a diam sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. At urna condimentum mattis pellentesque. Nibh venenatis cras sed felis eget velit. Cursus risus at ultrices mi tempus imperdiet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Risus feugiat in ante metus dictum at tempor commodo. Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Quis hendrerit dolor magna eget est lorem ipsum.', comments_counter: 0, likes_counter: 0)
+fifth2_post = Post.create(author: second_user, title:'Title 5', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in. Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. In dictum non consectetur a erat nam. Dui nunc mattis enim ut tellus elementum sagittis vitae et. Ut porttitor leo a diam sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. At urna condimentum mattis pellentesque. Nibh venenatis cras sed felis eget velit. Cursus risus at ultrices mi tempus imperdiet. Nisl nisi scelerisque eu ultrices vitae auctor eu augue. Risus feugiat in ante metus dictum at tempor commodo. Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec. Quis hendrerit dolor magna eget est lorem ipsum.', comments_counter: 0, likes_counter: 0)
+
+Comment.create(post: five_post, author: third_user, text: 'Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in.!' )
+Comment.create(post: five_post, author: fourth_user, text: 'Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales' )
+Comment.create(post: five_post, author: third_user, text: 'Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in.!' )
+Comment.create(post: five_post, author: fifth_user, text: 'In dictum non consectetur a erat nam!' )
+
+Comment.create(post: first2_post, author: third_user, text: 'Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales!' )
+Comment.create(post: first2_post, author: first_user, text: 'Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in.!' )
+Comment.create(post: first2_post, author: second_user, text: 'Ullamcorper a lacus vestibulum sed. Etiam sit amet nisl purus in.!' )
+Comment.create(post: first2_post, author: first_user, text: 'In dictum non consectetur a erat nam!' )
+Comment.create(post: first2_post, author: second_user, text: 'Arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales!' )
+Comment.create(post: first2_post, author: first_user, text: 'In dictum non consectetur a erat nam!' )

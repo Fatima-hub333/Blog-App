@@ -1,28 +1,37 @@
 require 'rails_helper'
 
-RSpec.describe 'Post', type: :system do
-  it 'shows the names of the users' do
-    visit('http://localhost:3000/')
-    expect(page).to have_content('Lilly')
-    expect(page).to have_content('ada')
+RSpec.describe 'User index', type: :feature do
+  before(:each) do
+    Rails.application.load_seed
+    visit root_path
+  end
+
+  it 'should show the username of all other users' do
     expect(page).to have_content('Tom')
+    expect(page).to have_content('Lilly')
+    expect(page).to have_content('Jerry')
+    expect(page).to have_content('John')
+    expect(page).to have_content('Jane')
   end
 
-  it 'displays image of each user' do
-    visit('http://localhost:3000/')
-    image = page.all('img')
-    expect(image.size).to eq(3)
+  it 'should show the profile picture of each user' do
+    expect(page).to have_css("img[src*='Tom']")
+    expect(page).to have_css("img[src*='Lilly']")
+    expect(page).to have_css("img[src*='Jerry']")
+    expect(page).to have_css("img[src*='John']")
+    expect(page).to have_css("img[src*='Jane']")
   end
 
-  it 'shows numbers of posts of each user' do
-    visit('http://localhost:3000/')
+  it 'should show the number of posts each user has written' do
+    expect(page).to have_content('Number of posts: 5')
+    expect(page).to have_content('Number of posts: 5')
     expect(page).to have_content('Number of posts: 0')
-    expect(page).to have_content('Number of posts: 4')
+    expect(page).to have_content('Number of posts: 0')
     expect(page).to have_content('Number of posts: 0')
   end
 
-  it 'redirects to the user/show page' do
-    visit('http://localhost:3000/')
-    expect(page).to have_link('Lilly', href: '/users/3')
+  it 'should redirect to users page when I click on the user name' do
+    click_on User.first.name.to_s
+    expect(page).to have_current_path(user_path(User.first.id))
   end
 end
