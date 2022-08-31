@@ -3,20 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
-gem 'rubocop', '>= 1.0', '< 2.0'
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
-
-gem 'devise', '>= 4.0', '< 5.0'
-
-gem 'letter_opener', group: :development
-
-gem 'cancancan', '~> 3.4'
-
-gem 'bootstrap-sass', '~> 3.4'
-
-gem 'font-awesome-sass', '~> 6.1'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -59,10 +47,22 @@ gem 'bootsnap', require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+gem 'devise', '~> 4.8'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'bullet'
+  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-controller-testing'
+  # The RSpec testing framework
+  gem 'rspec-rails'
+  # Capybara, the library that allows us to interact with the browser using Ruby
+  gem 'capybara'
+  # The following gems aids with the nuts and bolts
+  # of interacting with the browser.
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -78,16 +78,12 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'ffi'
-  gem 'rails-controller-testing'
-  gem 'selenium-webdriver'
-  gem 'webdrivers', '~> 5.0'
 end
 
-group :development, :test do
-  gem 'database_cleaner'
-  gem 'rspec-rails'
-end
+gem 'letter_opener', group: :development
 
-gem 'bullet', '~> 7.0'
+gem 'cancancan', '~> 3.4'
+
+gem 'bootstrap-sass', '~> 3.4'
+
+gem 'font-awesome-sass', '~> 6.1'
