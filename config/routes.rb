@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   
   get 'sign_in', to: 'users/sessions#new'
   root 'users#index'
-  resources :users, only: [:index, :show]
 
   resources :users, only: [:index, :show, :new, :create] do
     resources :posts, only: [:index, :show, :new, :create, :destroy] do
@@ -12,11 +11,4 @@ Rails.application.routes.draw do
     end
   end
   
-  namespace :api do
-    resources :users, only: [] do
-      resources :posts, only: [:index], format: :json do
-        resources :comments, only: [:index, :create], format: :json
-      end
-    end
-  end
 end
