@@ -32,6 +32,7 @@ node_modules/
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+.env
 
 # Ignore random stuff
 testing_models.rb
